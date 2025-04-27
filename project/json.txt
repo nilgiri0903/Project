@@ -1,0 +1,26 @@
+import os
+import json
+
+# Step 1: Create data.json file
+data = {
+    "name": "Alice",
+    "email": "alice@example.com",
+    "age": 30
+}
+
+with open("data.json", "w") as f:
+    json.dump(data, f)
+
+print("data.json file created.")
+
+def secure_delete(filename):
+    if os.path.exists(filename):
+        os.remove(filename)
+        print(f"Deleted: {filename}")
+    else:
+        print(f"File {filename} not found!")
+
+# Call secure_delete
+secure_delete("data.json")
+
+
